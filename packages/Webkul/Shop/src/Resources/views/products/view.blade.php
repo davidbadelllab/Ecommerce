@@ -1,6 +1,7 @@
 @inject ('reviewHelper', 'Webkul\Product\Helpers\Review')
 @inject ('productViewHelper', 'Webkul\Product\Helpers\View')
 
+
 @php
     $avgRatings = $reviewHelper->getAverageRating($product);
 
@@ -77,7 +78,7 @@
                 position="center"
                 ref="productTabs"
             >
-                <!-- Description Tab -->
+
                 {!! view_render_event('bagisto.shop.products.view.description.before', ['product' => $product]) !!}
 
                 <x-shop::tabs.item
@@ -114,20 +115,20 @@
                                         </div>
 
                                         @if ($customAttributeValue['type'] == 'file')
-                                            <a 
-                                                href="{{ Storage::url($product[$customAttributeValue['code']]) }}" 
+                                            <a
+                                                href="{{ Storage::url($product[$customAttributeValue['code']]) }}"
                                                 download="{{ $customAttributeValue['label'] }}"
                                             >
                                                 <span class="icon-download text-2xl"></span>
                                             </a>
                                         @elseif ($customAttributeValue['type'] == 'image')
-                                            <a 
-                                                href="{{ Storage::url($product[$customAttributeValue['code']]) }}" 
+                                            <a
+                                                href="{{ Storage::url($product[$customAttributeValue['code']]) }}"
                                                 download="{{ $customAttributeValue['label'] }}"
                                             >
-                                                <img 
-                                                    class="h-5 min-h-5 w-5 min-w-5" 
-                                                    src="{{ Storage::url($customAttributeValue['value']) }}" 
+                                                <img
+                                                    class="h-5 min-h-5 w-5 min-w-5"
+                                                    src="{{ Storage::url($customAttributeValue['value']) }}"
                                                 />
                                             </a>
                                         @else
@@ -212,8 +213,8 @@
                                             href="{{ Storage::url($product[$customAttributeValue['code']]) }}"
                                             download="{{ $customAttributeValue['label'] }}"
                                         >
-                                            <img 
-                                                class="h-5 min-h-5 w-5 min-w-5" 
+                                            <img
+                                                class="h-5 min-h-5 w-5 min-w-5"
                                                 src="{{ Storage::url($customAttributeValue['value']) }}"
                                                 alt="Product Image"
                                             />
@@ -260,10 +261,10 @@
     />
 
     <!-- Upsell Products -->
-    <x-shop::products.carousel
+    {{-- <x-shop::products.carousel
         :title="trans('shop::app.products.view.up-sell-title')"
         :src="route('shop.api.products.up-sell.index', ['id' => $product->id])"
-    />
+    /> --}}
 
     {!! view_render_event('bagisto.shop.products.view.after', ['product' => $product]) !!}
 
@@ -617,7 +618,7 @@
                                 behavior: 'smooth'
                             });
                         }
-                        
+
                         let tabElement = document.querySelector('#review-tab-button');
 
                         if (tabElement) {

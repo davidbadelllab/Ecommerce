@@ -192,6 +192,7 @@ return [
         Konekt\Concord\ConcordServiceProvider::class,
         Maatwebsite\Excel\ExcelServiceProvider::class,
         Prettus\Repository\Providers\RepositoryServiceProvider::class,
+        // Webkul\MercadoPago\Providers\MercadoPagoServiceProvider::class,
 
         /**
          * Application service providers.

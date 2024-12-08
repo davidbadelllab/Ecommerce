@@ -4,7 +4,8 @@
 
 @font-face {
     font-family: "bagisto-admin";
-    src: url("../fonts/bagisto-admin.woff?jwnnow") format("woff");
+    src: url("../fonts/whatsapp.woff") format("woff"),
+        url("../fonts/bagisto-admin.woff?jwnnow") format("woff");
     font-weight: normal;
     font-style: normal;
     font-display: block;
@@ -51,7 +52,7 @@
         text-transform: none;
         line-height: 1;
         color: #6b7280;
-        
+
         /* Better Font Rendering =========== */
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
@@ -62,7 +63,7 @@
     html.dark [class*=" icon-"]{
         color: #d1d5db;
     }
-    
+
     .box-shadow {
         @apply border-[1px] dark:border-gray-800 shadow-[0px_0px_0px_0px_rgba(0,0,0,0.03),0px_1px_1px_0px_rgba(0,0,0,0.03),0px_3px_3px_0px_rgba(0,0,0,0.03),0px_6px_4px_0px_rgba(0,0,0,0.02),0px_11px_4px_0px_rgba(0,0,0,0.00),0px_17px_5px_0px_rgba(0,0,0,0.00)];
     }
@@ -73,6 +74,10 @@
 
     .icon-magic:before {
         content: "\e94b";
+    }
+
+    .icon-whatsapp:before {
+        content: "\f40c";
     }
 
     .icon-zoom:before {
@@ -378,7 +383,7 @@
     .icon-play:before {
         content: "\e945";
     }
-      
+
     p {
         @apply text-[14px] !leading-[17px];
     }

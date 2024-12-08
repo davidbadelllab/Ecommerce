@@ -18,4 +18,14 @@ return [
         'active'      => true,
         'sort'        => 2,
     ],
+
+
+    'mercadopago' => [
+        'code'        => 'mercadopago',
+        'title'       => 'Mercado Pago',
+        'description' => 'Pague con Mercado Pago',
+        'class'       => 'Webkul\Payment\Payment\MercadoPago',
+        'active'      => true,
+        'sort'        => 3,
+    ],
 ];

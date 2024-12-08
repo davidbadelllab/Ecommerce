@@ -3831,6 +3831,7 @@ return [
                     'business-account'               => 'Cuenta de empresa',
                     'cash-on-delivery'               => 'Pago contra entrega',
                     'cash-on-delivery-info'          => 'Método de pago en el que los clientes pagan en efectivo al recibir los bienes o servicios en su puerta.',
+                    'mercadopago'                    => 'Pague con Mercado Pago',
                     'client-id'                      => 'ID de cliente',
                     'client-id-info'                 => 'Usar "sb" para pruebas.',
                     'client-secret'                  => 'Clave secreta del cliente',

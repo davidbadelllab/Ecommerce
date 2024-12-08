@@ -5,9 +5,7 @@
     lang="{{ app()->getLocale() }}"
     dir="{{ core()->getCurrentLocale()->direction }}"
 >
-
 <head>
-
     {!! view_render_event('bagisto.admin.layout.head.before') !!}
 
     <title>{{ $title ?? '' }}</title>
@@ -39,6 +37,8 @@
     @stack('meta')
 
     @bagistoVite(['src/Resources/assets/css/app.css', 'src/Resources/assets/js/app.js'])
+
+    @livewireStyles
 
     <link
         href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"
@@ -107,8 +107,7 @@
             <x-admin::layouts.sidebar />
 
             <div class="max-w-full flex-1 bg-white px-4 pb-6 pt-3 transition-all duration-300 dark:bg-gray-950 max-lg:!px-4 ltr:pl-[286px] group-[.sidebar-collapsed]/container:ltr:pl-[85px] rtl:pr-[286px] group-[.sidebar-collapsed]/container:rtl:pr-[85px]">
-                <!-- Added dynamic tabs for third level menus  -->
-                <!-- Todo @suraj-webkul need to optimize below statement. -->
+                <!-- Added dynamic tabs for third level menus -->
                 @if (!request()->routeIs('admin.configuration.index'))
                     <x-admin::layouts.tabs />
                 @endif
@@ -125,15 +124,20 @@
 
     @stack('scripts')
 
+    <script src="https://cdn.jsdelivr.net/gh/livewire/livewire@v2.x.x/dist/livewire.js"></script>
+
+    @livewireScripts
+
     {!! view_render_event('bagisto.admin.layout.vue-app-mount.before') !!}
 
     <script>
-        /**
-         * Load event, the purpose of using the event is to mount the application
-         * after all of our `Vue` components which is present in blade file have
-         * been registered in the app. No matter what `app.mount()` should be
-         * called in the last.
-         */
+        document.addEventListener('livewire:load', function () {
+            Livewire.on('qrReceived', qr => {
+                console.log('QR Code received:', qr);
+                // Additional logic for QR handling if needed
+            });
+        });
+
         window.addEventListener("load", function(event) {
             app.mount("#app");
         });

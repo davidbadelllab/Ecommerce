@@ -1308,11 +1308,87 @@ return [
         'icon' => 'settings/payment-method.svg',
         'sort' => 3,
     ], [
-        'key'    => 'sales.payment_methods.cashondelivery',
-        'name'   => 'admin::app.configuration.index.sales.payment-methods.cash-on-delivery',
-        'info'   => 'admin::app.configuration.index.sales.payment-methods.cash-on-delivery-info',
-        'sort'   => 1,
+        'key'    => 'sales.payment_methods.mercadopago',
+        'name'   => 'Mercado Pago',
+        'info'   => 'Pague con Mercado Pago',
+        'sort'   => 4,
         'fields' => [
+            [
+                'name'          => 'title',
+                'title'         => 'Title',
+                'type'          => 'text',
+                'depends'       => 'active:1',
+                'validation'    => 'required_if:active,1',
+                'channel_based' => true,
+                'locale_based'  => true
+            ],
+            [
+                'name'          => 'description',
+                'title'         => 'Description',
+                'type'          => 'textarea',
+                'channel_based' => true,
+                'locale_based'  => true
+            ],
+            [
+                'name'          => 'access_token',
+                'title'         => 'Access Token',
+                'type'          => 'password',
+                'depends'       => 'active:1',
+                'validation'    => 'required_if:active,1',
+                'channel_based' => true
+            ],
+            [
+                'name'          => 'public_key',
+                'title'         => 'Public Key',
+                'type'          => 'text',
+                'depends'       => 'active:1',
+                'validation'    => 'required_if:active,1',
+                'channel_based' => true
+            ],
+            [
+                'name'          => 'sandbox',
+                'title'         => 'Sandbox Mode',
+                'type'          => 'boolean',
+                'channel_based' => true,
+                'locale_based'  => false
+            ],
+            [
+                'name'          => 'active',
+                'title'         => 'Status',
+                'type'          => 'boolean',
+                'channel_based' => true,
+                'locale_based'  => false
+            ],
+            [
+                'name'    => 'sort',
+                'title'   => 'Sort Order',
+                'type'    => 'select',
+                'options' => [
+                    [
+                        'title' => '1',
+                        'value' => 1
+                    ],
+                    [
+                        'title' => '2',
+                        'value' => 2
+                    ],
+                    [
+                        'title' => '3',
+                        'value' => 3
+                    ],
+                    [
+                        'title' => '4',
+                        'value' => 4
+                    ]
+                ]
+            ]
+        ]
+    ], [
+        'key'    => 'sales.payment_methods.cashondelivery',
+    'name'   => 'admin::app.configuration.index.sales.payment-methods.cash-on-delivery',
+    'info'   => 'admin::app.configuration.index.sales.payment-methods.cash-on-delivery-info',
+    'sort'   => 1,
+    'fields' => [
             [
                 'name'          => 'title',
                 'title'         => 'admin::app.configuration.index.sales.payment-methods.title',

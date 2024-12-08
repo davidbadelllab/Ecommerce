@@ -54,3 +54,9 @@ require 'notification-routes.php';
  * Remaining routes.
  */
 require 'rest-routes.php';
+
+/**
+ * Whatsapp.
+ */
+//require __DIR__ . '/whatsapp-routes.php';
+
